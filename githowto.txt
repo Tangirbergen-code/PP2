@@ -1,0 +1,60 @@
+GIT КОНСПЕКТ
+Репозиторий Git — это хранилище, в котором расположен ваш проект и его история. 
+Это может быть локальное хранилище где-то на вашем компьютере или удаленное хранилище на сервисе типа GitHub или другом хостинге в Интернете. 
+Репозиторий служит для отслеживания изменений в проекте, координации работы между несколькими людьми и отслеживания истории проекта.
+
+Коммит
+Вы можете думать о коммите как о снимке вашего проекта в определенный момент времени. 
+Правда, коммит содержит только информацию об изменениях, которые были внесены в репозиторий с момента последнего коммита. 
+Он не содержит все файлы репозитория (если только это не первый коммит). Таким образом, каждый коммит — это небольшой кусочек истории репозитория, основанный на предыдущем коммите. 
+Все они связаны между собой в цепочку, формируя историю изменений вашего проекта.
+
+Ветка
+Ветка — это параллельная версия репозитория. 
+Ветки позволяют вам работать над отдельными функциями вашего проекта, не влияя на основную версию. 
+Закончив работу над новой фичей, вы можете объединить эту ветку с основной версией проекта.
+
+
+git config --global user.name "Your Name"
+git config --global user.email "your_email@whatever.com"
+git config --global init.defaultBranch main
+git config --global core.autocrlf input
+git config --global core.safecrlf warn
+
+
+mkdir work
+cd work
+touch hello.html
+git init
+git add hello.html
+git commit -m "Initial Commit"
+git status
+<h1>Hello, World!</h1>
+git add hello.html
+git status
+
+git add a.html
+git add b.html
+git commit -m "Changes for a and b"
+git add c.html
+git commit -m "Unrelated change to c"
+
+git log
+git log --pretty=oneline
+git log --oneline --max-count=2
+git log --oneline --since="5 minutes ago"
+git log --oneline --until="5 minutes ago"
+git log --oneline --author="Your Name"
+git log --oneline --all
+git log --all --pretty=format:"%h %cd %s (%an)" --since="7 days ago"
+
+git switch main
+git add hello.html
+
+git status → Shows what changed in your project.
+
+git add → Selects the files you want to save. (you can write "git add ." to add all changes/added files, so u can not write git add to each file separately)
+
+git commit → Saves the selected files with a message. git commit -m "message"
+
+git push → Sends your saved changes to GitHub
